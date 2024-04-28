@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
+import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config();
 
@@ -29,12 +30,17 @@ mongoose.connection.on("disconnected", () => {
 // });
 
 
+
+
 //middlewares 
 // <-----
 // app.use((req, res, next)=> {
 //     console.log("Hi middleware");
 //     next();    
 // });        we will use error handling middlewares
+
+// this is middleware too and its cookie parser 
+app.use(cookieParser());
 
 app.use(express.json()); //so that we can send json through express
 

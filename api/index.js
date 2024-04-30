@@ -6,6 +6,8 @@ import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
 const app = express();
 dotenv.config();
 
@@ -38,6 +40,9 @@ mongoose.connection.on("disconnected", () => {
 //     console.log("Hi middleware");
 //     next();    
 // });        we will use error handling middlewares
+
+//use instead of proxy
+app.use(cors());
 
 // this is middleware too and its cookie parser 
 app.use(cookieParser());
